@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Audio Transcriber",
+  "version": "1.0",
+  "description": "Transcribe el audio de videos de YouTube a texto para usar con ChatGPT u otros asistentes de IA.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://www.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/watch*"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
